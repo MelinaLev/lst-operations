@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LST Ops Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      width: 90%;
+      max-width: 420px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    h1 { margin: 0 0 8px; font-size: 22px; }
+    p { margin: 0 0 18px; opacity: 0.75; font-size: 14px; }
+    input {
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.2);
+      color: white;
+      outline: none;
+      font-size: 14px;
+      box-sizing: border-box;
+      margin-bottom: 12px;
+    }
+    button {
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 10px;
+      border: 0;
+      background: #2563eb;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover { background: #1d4ed8; }
+    .error { margin-top: 10px; color: #fecaca; display: none; font-size: 13px; }
+    .hint { margin-top: 14px; opacity: 0.55; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>LST Operations</h1>
+    <p>Internal access</p>
+
+    <input id="pw" type="password" placeholder="Enter password" />
+    <button onclick="login()">Log in</button>
+    <div id="err" class="error">Incorrect password.</div>
+
+    <div class="hint">V1 login gate (we can upgrade to real accounts later).</div>
+  </div>
+
+  <script>
+    // ⚠️ V1 only: change this password
+    const SITE_PASSWORD = "ChangeMe123!";
+
+    function login() {
+      const entered = document.getElementById("pw").value;
+      const err = document.getElementById("err");
+
+      if (entered === SITE_PASSWORD) {
+        sessionStorage.setItem("lst_ops_authed", "true");
+        window.location.href = "/"; // goes to index.html
+      } else {
+        err.style.display = "block";
+      }
+    }
+
+    // Enter key submits
+    document.getElementById("pw").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") login();
+    });
+  </script>
+</body>
+</html>

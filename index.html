@@ -5,6 +5,7 @@
         <meta name="viewport" content=""width=device-width, initial-scale=1">
         <style> 
             body { 
+                
                 margin: 0;
                 font-family: Arial, sans-serif;
                 background: linear-gradient(135deg, #0f172a, #1e293b);
@@ -48,12 +49,20 @@
     </head>
 
     <body>
+        <script>
+            if sessionStorage.getItem("lst_ops_authorized") !== "true") {
+                window.location.href = "/login.html";
+            }
+        </script>
         <div class=""container">
          <h1>LST Operations</h1>
          <p>Internal Use Only</p>
 
          <a href="#" class="button">Approved Tickets Tool</a>
          <a href="#" class="button"> Remittance Tool</a>
+         <a href="#" class="button" onclick="sessionStorage.removeItem('lst_ops_authed'); window.location.href='/login.html'; return false;">
+            Log Out
+        </a>
         </div>
     </body>
 </html>
