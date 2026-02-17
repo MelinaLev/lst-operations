@@ -7,6 +7,11 @@
 
   <!-- SheetJS (read/write Excel in the browser) -->
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.19.3/dist/xlsx.full.min.js"></script>
+  <script>
+    if (sessionStorage.getItem("lst_ops_authorized") !== "true") {
+        window.location.href = "/login.html";
+    }
+  </script>
 
   <style>
     body { margin:0; font-family: Arial, sans-serif; background:#0f172a; color:#fff; }
