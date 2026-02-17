@@ -17,14 +17,14 @@
     <h1>Approved Tickets Tool</h1>
     <p>Upload AXON and Approved List files. Download the comparison report.</p>
 
-    <form action="/compare" method="post" enctype="multipart/form-data">
-      <label>AXON Export (.xlsx)</label>
-      <input type="file" name="axon" accept=".xlsx" required>
+    <form action="/approved" method="post" enctype="multipart/form-data">
+      <label>AXON Receivable Report (.xlsx or .csv)</label>
+      <input type="file" name="axon" accept=".xlsx,.csv" required>
 
-      <label>Approved List (.xlsx)</label>
-      <input type="file" name="approved" accept=".xlsx" required>
+      <label>OpenInvoice Approved Report (.xlsx or .csv)</label>
+      <input type="file" name="openinvoice" accept=".xlsx,.csv" required>
 
-      <button type="submit">Compare & Download</button>
+      <button type="submit">Generate Invoice Status</button>
     </form>
   </div>
 </body>
